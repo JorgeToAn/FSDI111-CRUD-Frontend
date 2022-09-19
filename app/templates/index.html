@@ -5,7 +5,7 @@
 {% block content %}
 <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Data Types</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,11 +46,34 @@
 </div>
 
 <div class="container">
-    <h3>Data types</h3>
-    <ul>
+    <div class="mb-5">
+        <h3>Purpose</h3>
+        <hr style="border-top: 3px solid #bbb">
+        <p>This site details info about some basic data types in Python like integers and lists. It also wants to inform about the difference between "passing by value" and "passing by reference" as different data types behave differently, as when you're not expecting it, it can make your code behave in a weird manner.</p>
+    </div>
+
+    <div class="mb-5">
+        <h3>Passing by value</h3>
+        <hr style="border-top: 3px solid #bbb">
+        <p>When we pass a variable through a function, the function will make a new spot in memory and hold the value of the variable that was passed on there, effectively making a <b>copy</b> of the original variable, this means that any changes made to the variable in the function <b>will not affect</b> the original one.</p>
+    </div>
+
+    <div class="mb-5">
+        <h3>Passing by reference</h3>
+        <hr style="border-top: 3px solid #bbb">
+        <p>When we pass a variable through a function, the function will receive the location in memory of the variable, this we call a "reference". Because the function receives the same memory spot that the variable looks at, it means that any changes we make to that variable in the function <b>will affect</b> the original variable as well.</p>
+    </div>
+
+    <div class="mb-5">
+        <h3>Data types</h3>
+        <hr style="border-top: 3px solid #bbb">
         {% for dt in data_types %}
-        <li>{{ dt["name"] }} - {{ dt["summary"] }}</li>
+            <div class="text-light mb-2" style="background-color: #313131; border-radius: 10px">
+                <h5 class="p-3">{{ dt["name"] }}</h5>
+                <hr class="m-0" style="border-top: 3px solid #bbb">
+                <p class="p-3">{{ dt["summary"] }}</p>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 </div>
 {% endblock content %}

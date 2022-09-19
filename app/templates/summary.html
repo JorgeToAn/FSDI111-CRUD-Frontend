@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Summary{% endblock title %}
+
+{% block content %}
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Data Types</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse position-absolute end-0 me-5" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Data Types
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/summary">Summary</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/integer">Integer</a></li>
+                        <li><a class="dropdown-item" href="/float">Float</a></li>
+                        <li><a class="dropdown-item" href="/boolean">Boolean</a></li>
+                        <li><a class="dropdown-item" href="/string">String</a></li>
+                        <li><a class="dropdown-item" href="/list">List</a></li>
+                        <li><a class="dropdown-item" href="/dictionary">Dictionary</a></li>
+                        <li><a class="dropdown-item" href="/tuple">Tuple</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="text-light bg-success">
+    <div class="container">
+        <h1 class="pb-1">Summary</h1>
+    </div>
+</div>
+
+<div class="container">
+    <p>The following table lists whether the data type is passed by value or by reference on a function.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                {% for dt in data_types %}
+                    <th scope="col">{{ dt["name"] }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Summary</th>
+                {% for dt in data_types %}
+                    <td>{{ dt["summary"] }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th scope="row">Pass By</th>
+                {% for dt in data_types %}
+                    <td>{{ dt["pass_by"] }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
